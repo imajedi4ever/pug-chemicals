@@ -56,6 +56,7 @@ angular.module( 'pug-chemicals.compounds', [
 
                         $scope.compounds = compounds;
                         $scope.totalMolecularWeight = getTotalMolecularWeights(compounds).reduce(getSum);
+                        $scope.message = "Your search of: " + $scope.search + " returned the following results:";
                     });
                 }
             });

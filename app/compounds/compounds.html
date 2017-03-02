@@ -14,9 +14,9 @@
 </div>
 <div class="container" ng-show="compounds">
     <h1>{{ header }}</h1>
+    <p ng-show="message">{{message}}</p>
     <div id="compounds" class="card" ng-repeat="compound in compounds">
         <img class="compound-img card-img-top" ng-src="{{ compound.imageURL }}" />
-
         <div class="card-block">
             <h4 class="card-title">ID: {{ compound.cid }}</h4>
         </div>
