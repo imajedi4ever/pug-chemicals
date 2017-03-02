@@ -1,0 +1,35 @@
+<div class="container" ng-show="!compounds">
+    <form class="form-inline">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+                <input id="search-input" class="form-control" type="search" value="Compound(s) CIDs" placeholder="Compound(s) ID" ng-model="search" />
+            </div>
+        </div>
+        <button type="submit" class="btn btn-default" ng-click="searchCompounds()">Search</button>
+        <p class="error" ng-show="message">{{message}}</p>
+    </form>
+</div>
+<div class="container" ng-show="compounds">
+    <h1>{{ header }}</h1>
+    <div id="compounds" class="card" ng-repeat="compound in compounds">
+        <img class="compound-img card-img-top" ng-src="{{ compound.imageURL }}" />
+
+        <div class="card-block">
+            <h4 class="card-title">ID: {{ compound.cid }}</h4>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <ul class="list-unstyled" ng-repeat="synonym in compound.synonyms">
+                    <li>{{ synonym }}</li>
+                </ul>
+            </li>
+            <li class="list-group-item">{{ compound.molecularFormula }}</li>
+            <li class="list-group-item">{{ compound.molecularWeight }}</li>
+        </ul>
+    </div>
+
+    <h3>Total Molecular Weight: {{ totalMolecularWeight }}</h3>
+</div>
